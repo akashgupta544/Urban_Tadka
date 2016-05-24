@@ -1,0 +1,894 @@
+﻿@model IList<Urban_BOL.Item_Info>
+@using Urban_BOL;
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Urban Tadka Catering Price And Packages</title>
+    <script src="~/Scripts/jquery-2.0.0.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, height=device-height">
+    <script src="~/Scripts/slick.min.js"></script>
+    <link href="~/slick.css" rel="stylesheet" />
+    <script src="~/Scripts/slick.min.js"></script>
+    <link href="~/Scripts/bootstrap.css" rel="stylesheet" />
+    <link href="~/Home.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap1.js"></script>
+    <script type="text/javascript">
+        var f,n,m,o,name,countright=0,c=0;
+  
+        $(document).ready(function () {
+            if (window.innerWidth > 767) {
+                $('.top-bar').hover(function () { $(this).css('background-color', '#F75D59') }).mouseout(function () { $(this).css('background-color', 'white') });
+            } $('p[id="cater-text"]').click(function () {
+                $('#back-image').slideUp("slow");
+
+
+
+
+            })
+            $('#saver').hide();
+            $('#saver').hide();
+            if (window.innerWidth <= 767) {
+                $('p[id="cater-text"]').css('height', '85px');
+                $('img[id="buffet-image"]').css('height', '70px');
+                $('.top-bar').css('background-color', '#9F000F');
+                $('#saver').show();
+                $('#menu-icon').click(function () {
+                    $('#saver').css('height', '150px')
+                    c++
+
+                    if (c % 2 != 0) {
+                        $('div[id="catering-container"]').animate({ 'top': 200 });
+                    }
+                    else {
+                        $('div[id="catering-container"]').animate({ 'top': 0 });
+                        $('#saver').css('height', '30px')
+                    }
+
+                })
+
+            }
+            $('img[id="item-image"]').each(function () {
+                if ($(this).attr('class') != "1") {
+                    $(this).hide();
+                }
+            })
+            $('p[id="item-image"]').each(function () {
+                if ($(this).attr('class') != "1") {
+                    $(this).hide();
+                }
+            })
+
+            $('li[id="mobile-list"]').each(function () {
+                $(this).click(function () {
+                    $('img[id="item-image"]').each(function () {
+                        $(this).hide();
+                    })
+                    $('p[id="item-image"]').each(function () {
+                        $(this).hide();
+                    })
+                    a = ($(this).attr('class'));
+                    b = ($(this).attr('name'));
+
+                    $('p[id="mob-category"]').html(b);
+                    $('img[class=' + a + ']').each(function () {
+                        $(this).show(0, "swing");
+                    }).fadeOut(0).fadeIn(1500, "swing");
+                    $('p[class= ' + a + ']').each(function () {
+                        $(this).show(0, "swing");
+                    }).fadeOut(0).fadeIn(1500, "swing");
+                })
+
+            })
+            //this is to show the trays price
+            $('img[id="item-image"]').each(function () {
+                $(this).click(function () {
+                    var e = ($(this).attr('name'));
+                    $('p[name="' + e + '"]').each(function () {
+                        $(this).slideToggle("slowly");
+                    })
+
+                })
+            })
+
+            $('div[class="custom"]').each(function () {
+                $(this).click(function () {
+
+                    var r = ($(this).attr('id'));
+                    var k = $('div[class=' + r + ']').css('height');
+                    $(this).css('height', k);
+                    $('div[class=' + r + ']').each(function () {
+                        $(this).css("visibility", "visible");
+
+                    })
+
+                })
+            })
+            //for custom package
+            $('div[id="custom-appt"]').html($('div[class="Veg Pakora"]').html());
+
+            $('a[name="custom"]').each(function () {
+                $(this).click(function () {
+                    o = $(this).attr('id');
+                })
+            })
+            $('li[id="custom-list"]').each(function () {
+                $(this).click(function () {
+                    name = ($(this).attr('class'));
+                    if (o == "upgrade") {
+                        alert(o);
+                        $('div[id="custom-appt"]').html($('div[class="' + name + '"]').html());
+                    }
+                    else if (o == "add-up") {
+                        alert(o);
+
+                        $('div[id="custom-appt"]').append($('div[class="' + name + '"]').html());
+                    }
+
+
+                })
+
+
+            })
+         
+            $('a[id="curry"]').each(function () {
+                $(this).click(function () {
+                    n = $(this).attr('name');
+                })
+
+            })
+            $('img[id="item-image1"]').hide(0);
+            $('p[id="item-image1"]').hide(0);
+            $('li[id="mobile-list1"]').each(function () {
+                $(this).click(function () {
+                    f = ($(this).attr('class'));
+                    $('a[name= "' + n + '"]').hide(0);
+                    $('#any').html(f);
+
+                    //$('#any').html($('img[name="' + f + '"]').attr(name));
+                    $('img[name="' + f + '"]').show();
+                    $('p[class=' + f + ']').show();
+                })
+
+
+            })
+
+            $('#rightappetizer').click(function () {
+                countright++;
+                $('#Appetizers').each(function () {
+                    $(this).animate({ 'marginLeft': "-=300px" }, 400, 'linear');
+
+
+                })
+
+
+            })
+
+            $('#leftappetizer').click(function () {
+                if (countright != 0) {
+                    $('#Appetizers').each(function () {
+                        $(this).animate({ 'marginLeft': "+=300px" }, 400, 'linear');
+
+                    })
+                    countright--;
+                }
+
+            })
+            $('#rightcurry').click(function () {
+                countright++;
+                $('#Curries').each(function () {
+                    $(this).animate({ 'marginLeft': "-=300px" }, 400, 'linear');
+
+
+                })
+
+            })
+
+            $('#leftcurry').click(function () {
+                if (countright != 0) {
+                    $('#Curries').each(function () {
+
+
+                        $(this).animate({ 'marginLeft': "+=300px" }, 400, 'linear');
+
+                    })
+                    countright--;
+                }
+
+            })
+            $('#rightdessert').click(function () {
+                countright++;
+                $('#Dessert').each(function () {
+                    $(this).animate({ 'marginLeft': "-=300px" }, 400, 'linear');
+
+
+                })
+
+            })
+
+            $('#leftdessert').click(function () {
+                if (countright != 0) {
+                    $('#Dessert').each(function () {
+
+                        $(this).animate({ 'marginLeft': "+=300px" }, 400, 'linear');
+
+                    })
+                    countright--;
+                }
+
+            })
+
+
+        });
+
+        function pricecalculator() {
+            var appetizercount = 0;
+            var totalprice = 0;
+
+            var vegcurrylength;
+            var chickencurrylength = 0;
+            var goatcurrylength = 0;
+            var countupgrade = 3;
+            var ricecount = 0;
+            var dessertcount = 0;
+            if ($('input[id="appetizercheck"]:checked').length == 0) {
+                alert("you did not choose any appetizer. Please choose atleast one appetizer");
+                return;
+            }
+            else if ($('input[id="currycheck"]:checked').length < 3) {
+                alert("you have to choose atleast three curry to continue. Please call us if have any further question ");
+                return;
+            }
+            else if ($('input[id="dessertcheck"]:checked').length < 1) {
+
+                alert("you have to choose atleast one dessert and one  rice. Please choose one to continue");
+                return;
+            }
+            else if ($('input[name="9"]:checked').length < 1) {
+                alert("please select atleast one dessert"); return;
+            }
+            else {
+
+                $('input[id="appetizercheck"]:checked').each(function () {
+                    if ($(this).val() == "Veg Pakora") {
+                        appetizercount++;
+
+                    }
+                })
+                if (appetizercount != 0) {
+                    var t = $('input[id="appetizercheck"]:checked').length;
+                    if (t > 1)
+                    { totalprice = 2 * (t - 1) + 1.66; appetizercount = 0; }
+                    else { totalprice = 1.66; appetizercount = 0; }
+                }
+                else {
+
+                    var t = $('input[id="appetizercheck"]:checked').length;
+                    totalprice = 2 * (t - 1) + 2.66;
+                }
+
+
+                vegcurrylength = $('input[name="2"]:checked').length + $('input[name="3"]:checked').length + $('input[name="4"]:checked').length;
+
+                chickencurrylength = $('input[name="6"]:checked').length;
+                goatcurrylength = $('input[name="7"]:checked').length;
+                if (vegcurrylength >= 3) {
+                    totalprice = totalprice + ((3 * 1.66 + (vegcurrylength - 3) * 2) + (chickencurrylength * 2) + (goatcurrylength * 3));
+                    chickencurrylength = 0; vegcurrylength = 0; goatcurrylength = 0;
+
+                }
+                else {
+                    var i = 1;
+                    while (i < 4) {
+                        if (i == 1) {
+                            if (vegcurrylength > 0 && vegcurrylength > countupgrade) {
+                                vegcurrylength = vegcurrylength - countupgrade;
+                                totalprice = totalprice + (countupgrade * 1.66) + (vegcurrylength * 2);
+                                break;
+                            }
+                            else if (vegcurrylength > 0 && vegcurrylength < countupgrade) {
+                                totalprice = totalprice + (vegcurrylength * 1.66);
+                                countupgrade = countupgrade - vegcurrylength;
+
+                            }
+                            i++;
+                        }
+                        if (i == 2) {
+                            if (chickencurrylength > 0 && chickencurrylength >= countupgrade) {
+                                chickencurrylength = chickencurrylength - countupgrade;
+                                totalprice = totalprice + (countupgrade * 2.66) + (chickencurrylength * 2);
+
+                                countupgrade = 0;
+
+
+                            }
+                            else if (chickencurrylength > 0 && chickencurrylength < countupgrade) {
+                                totalprice = totalprice + (chickencurrylength * 2.66);
+                                countupgrade = countupgrade - chickencurrylength;
+
+                            }
+                            i++;
+                        }
+                        if (i == 3) {
+                            if (goatcurrylength > 0) {
+                                goatcurrylength = goatcurrylength - countupgrade;
+                                totalprice = totalprice + (countupgrade * 3.66) + (goatcurrylength * 3);
+
+                            }
+                            i++;
+                        }
+                    }
+
+
+                }
+
+
+                ricelength = $('input[name="8"]:checked').length;
+                dessertlength = $('input[name="9"]:checked').length;
+                $('input[name="8"]:checked').each(function () {
+                    if ($(this).val() == "Plain Rice" || $(this).val() == "Jeera Rice") {
+                        ricecount++;
+
+                    }
+                });
+                if (ricecount != 0) {
+                    var t = $('input[name="8"]:checked').length;
+
+                    if (t > 1)
+                    { totalprice = totalprice + (2 * (t - 1) + 1.66); }
+                    else { totalprice = totalprice + 1.66; }
+                }
+                else {
+
+                    var t = $('input[name="8"]:checked').length;
+                    totalprice = totalprice + (2 * (t - 1) + 2.66);
+
+                }
+
+                $('input[name="9"]:checked').each(function () {
+                    if ($(this).val() == "Badami Kheer" || $(this).val() == "Gulab Jamun") {
+                        dessertcount++;
+
+                    }
+                });
+                if (dessertcount == 0) {
+                    var t = $('input[name="9"]:checked').length;
+                    totalprice = totalprice + (2 * (t - 1) + 2.66);
+
+                }
+
+                else if (dessertcount != 0) {
+                    var t = $('input[name="9"]:checked').length;
+
+                    if (t > 1)
+                    { totalprice = totalprice + (2 * (t - 1) + 1.66); }
+                    else { totalprice = totalprice + 1.66; }
+                }
+
+                $('#price').html("Your Price is $" + Math.round(totalprice).toString()+"/person \"EXCLUSIVE TAX\". Please call us If you like the Package <br/> Please Note that this is not the Final Price. Actual Price could be same or may differ a bit(NOT MUCH) ")
+                return (totalprice.toString());
+
+
+            }
+
+        }
+
+    </script>
+
+</head>
+<body>
+    @{
+        String[] str = new String[200];
+        String[] unique = new String[100];
+    }
+    @for (int i = 0; i < @Model.Count; i++)
+    {
+        str[i] = @Model.ElementAt(i).Category_info.category_name;
+    }
+
+    @{
+        unique = str.Distinct().ToArray();
+    }
+    <div style="overflow-x:hidden">
+        <nav class="navbar navbar-default" style="height:100px; background-color:white">
+            <div class="container-fluid" style="background-color:white">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" id="menu-icon" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#" style="margin:0px;padding:0px"><img id="logo" style="height:99px;width:150%;border-bottom:solid;border-color:rgba(203, 209, 206, 0.92)" class="img-responsive center-block" alt="Responsive image" src="~/Images/logo.PNG" /></a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding-top:20px;background-color:white;">
+                    <ul class="nav navbar-nav" style="margin-left:30px" id="nav">
+
+                        <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("HOME", "index")</li>
+                        <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("CONTACT US", "Locate")</li>
+                        <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("CATER WITH US", "Cater")</li>
+
+                        <li class="top-bar">
+                            <button class="top-bar" style="font-size:large;padding:11.8px;font-weight:500;color:grey;background-color:white;border:none
+" data-toggle="modal" data-target="#mymodal">
+                                HOURS
+                            </button>
+                        </li>
+
+
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="top-bar" style="font-size:large;font-weight:500">@Html.ActionLink("TODAY'S BUFFET MENU", "Buffet_Menu")</li>
+
+                        <li class="dropdown" style="font-size:large;padding:11.8px;background-color:white;border:none">
+                            <a id="login" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:large;padding:5px;border:solid">
+                                <span class="glyphicon glyphicon-align-justify" aria-hidden="true">
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">@Html.ActionLink("Admin Login", "Login")</a></li>
+                            </ul>
+                        </li>
+
+
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+     
+           
+       
+        <div id="saver" style="height:30px"></div>
+        <div class="modal fade" tabindex="-1" role="dialog" id="mymodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" style="color:white;font-weight:900;text-align:center">HOURS</h4>
+                    </div>
+                    <div class="modal-body">
+                        <table class="table" style="background-color:grey; font-weight:900">
+                            <thead>
+                                <tr>
+                                    <th> DAYS</th>
+                                    <th> LUNCH</th>
+                                    <th> DINNER</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>MONDAY</td>
+                                    <td>11.00AM - 2.30PM</td>
+                                    <td>5.30PM - 9.45PM</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td style="background-color:white">TUESDAY</td>
+                                    <td colspan="2" style="background-color:white">WE ARE CLOSED ON EVERY TUESDAY</td>
+
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>WEDNESDAY</td>
+                                    <td>11.00AM - 2.30PM</td>
+                                    <td>5.30PM - 9.45PM</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>THURSDAY</td>
+                                    <td>11.00AM - 2.30PM</td>
+                                    <td>5.30PM - 9.45PM</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>FRIDAY</td>
+                                    <td>11.00AM - 2.30PM</td>
+                                    <td>5.30PM - 9.45PM</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>SATURDAY</td>
+                                    <td>11.00AM - 3.00PM</td>
+                                    <td>5.30PM - 9.45PM</td>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                    <td>SUNDAY</td>
+                                    <td>11.00AM - 2.30PM</td>
+                                    <td>5.30PM - 9.45PM</td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+
+        <div id="catering-container" style="position:relative;">
+            <div id="back-image" style="position: relative; height: 600px; background-repeat: no-repeat; width: 100%; text-align: center; background-image: url('../../../../big_images/1cater.jpg'); padding-top: 350px;">
+                <p id="cater-text" style="background-color:black;color:white;box-shadow: 0px 0px 10px #888;border-radius:21px;height:50px;margin-left:37%;margin-right:37%;padding-top:8px;font-size:large;font-weight:700;border:solid;border-color:#ffffff">Click Me To Start </p>
+            </div>
+
+
+            <div style="border-radius:10px;font-family: big caslon; font-size: 20px; font-style: normal; font-variant: normal; font-weight: 900; line-height: 30px; height:40px;padding:8px;background-image: url('../../../../big_images/grey_background.jpg');">Please click on the Links Below for Details and click again to Close it</div>
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="#traysorder" aria-expanded="false" aria-controls="collapseExample" style="width:100%;font-size:medium;font-weight:700;background-color:#990012; box-shadow: 0px 0px 10px #888;border-color:#888">
+                Click To See Tray's Order
+            </a>
+
+            <div class="collapse" id="traysorder">
+                <div class="well">
+                    <div style="margin:20px; font-size:large;font-weight:800">Half Tray can serve upto 10-15 people </div>
+                    <div style="margin:20px; font-size:large;font-weight:800">Semi-Half Tray  can serve upto 25-30 people </div>
+                    <div style="margin:20px; font-size:large;font-weight:800">Full can serve upto 40-50 people </div>
+                    <div style="margin:20px; font-size:large;font-weight:800"></div>Hi please select the category below from the MENU dropdown and tap or click the images to see the prices
+                </div>
+                <div id="mobile-section">
+
+                    <div id="mobile-menu" style="border-color:gray;border-radius:6px;border:thick;height:50px;width:20%;text-align:center">
+                        <div class="dropdown">
+                            <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <p style="margin-top:13px;font-weight:600">MENU</p>
+                                <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                @for (int i = 0; i < @unique.Length - 1; i++)
+                                {
+                                    <li name="@unique[i]" id="mobile-list" class="@(i+1)"><a href="#">@unique[i]</a></li>
+
+                                }
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="mobile-categories" style="width:65%;height:50px;background-color:#990012;text-align:center;border-radius:10px">
+                        <p id="mob-category" style="font-weight:600;color:white;margin-top:9px;font-size:large">Appetizers</p>
+                    </div>
+                </div>
+                <div id="mobile-body">
+                    @for (int i = 0; i < @Model.Count; )
+                    {
+                        int j = (int)@Model.ElementAt(i).Item_category_ID;
+                        <div id="items-image" class="menu-items" style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-around;">
+
+
+                            @for (int k = i; k < @Model.Count; k++)
+                            {
+                                if (@Model.ElementAt(k).Item_category_ID != j && k != 0)
+                                { break; }
+
+                                <div id="mobile-menu" style="display:flex;flex-direction:column;margin-top:6px;">
+                                    <div class="@Model.ElementAt(i).Item_name">
+                                        <div style="width:auto">
+                                            <img style="width:110px;height:150px;border-radius:10px;margin-right:30px;" id="item-image" name="@Model.ElementAt(i).Item_name" class="@Model.ElementAt(i).Item_category_ID" src="@Url.Content(@Model.ElementAt(i).item_bigphoto)" />
+                                            <p style="margin-top: 10px;border-radius: 5px; width: 110px; height: auto; color: black; font-weight: 500; font-size: large;color:black" id="item-image" class="@Model.ElementAt(i).Item_category_ID">@Model.ElementAt(i).Item_name</p>
+                                        </div>
+                                    </div>
+                                    <p name="@Model.ElementAt(i).Item_name" ide="price" style="box-shadow: 0px 0px 10px #888;border-radius:5px;padding:4px;width:140px;height:50px;color:black;font-weight:500;font-size:large;background-color:#4cb520" id="item-image">Half Tray Price is <bold>$@Model.ElementAt(i).HT_Price</bold></p>
+                                    <p name="@Model.ElementAt(i).Item_name" ide="price" style="box-shadow: 0px 0px 10px #888;border-radius:5px;padding:4px;width:140px;height:50px;color:black;font-weight:500;font-size:large;background-color:#0094ff" id="item-image">Semi Half Tray Price is <bold>$@Model.ElementAt(i).SMT_Price</bold></p>
+                                    <p name="@Model.ElementAt(i).Item_name" ide="price" style="box-shadow: 0px 0px 10px #888;border-radius:5px;padding:4px;width:140px;height:50px;color:black;font-weight:500;font-size:large;background-color:#7e6f36" id="item-image">Full Tray Price is <bold>$@Model.ElementAt(i).FT_Price</bold></p>
+
+                                </div>
+                                j = (int)@Model.ElementAt(k).Item_category_ID;
+                                i++;
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <button style="width:100%;font-size:medium;font-weight:700;background-color:#990012; box-shadow: 0px 0px 10px #888;border-color:#888"
+                    class="btn btn-primary" type="button" data-toggle="collapse" data-target="#buildyourpackage" aria-expanded="false" aria-controls="collapseExample">
+                See Our Catering Packages
+            </button>
+
+            <div class="collapse" id="buildyourpackage">
+                <div class="well">
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                        @*<div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+                                <h4 class="panel-title" style="box-shadow: 0px 0px 10px #888;text-align:center">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="padding:2px">
+                                        See Our Standard Package
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <div style="text-align: center; font-family: big caslon; font-size: 15px; font-style: normal; background-image: url('../../../../big_images/backgroundgrad[1].jpg'); font-weight: 600; line-height: 30px;">OUR STANDARD PACKAGE COST IS <span style="font-size:25px">$10/Person</span> AND WE TAKE CATERING ORDERS ONLY FOR MORE THAN 20 PERSONS</div>
+                                    <div style="display:flex;flex-direction:row;justify-content:space-between">
+                                        <div style="padding:7px;border-radius:10px;font-family: big caslon; font-size: 20px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; background-image: url('../../../../big_images/grey_background.jpg');">Our Standard Package Includes-:<br />1) An Appetizer VEG PAKORA.<br />2) 3 Vegetarian Curies that you can choose below.<br />3) Naan, Rice,Salad, Raita are complementary.<br />4) 1 Desert that you may choose below.<br /></div>
+                                        <div style="padding:50px;border-radius:10px;font-family: big caslon; font-size: 20px; font-style: normal; font-variant: normal; font-weight: 900; line-height: 30px; background-image: url('../../../../big_images/grey_background.jpg');">After Deciding Your Package Please Call Us at 469-420-9920</div>
+                                    </div>
+                                    <div style="margin:8px;height:770px;max-height:1200px; box-shadow: 0px 0px 10px #888; border-radius: 10px; border: solid; background-image: url('../../../../big_images/grey_background.jpg'); ">
+                                        <div style="border-radius:10px;color:black;text-align:center;font-family :big caslon; font-size :20px;border-bottom:solid; font-style :normal; font-variant :normal;font-weight :800; height:30px; background-image: url('../../../../big_images/grey_background.jpg');">Your Package</div>
+                                        <div style="display:flex; flex-direction:row;padding:4px; height:700px;">
+                                            <div style="width:35%;padding:10px;height:auto;">
+                                                <div id="standard-box" class="standard-curries" style="margin-bottom: 10px; margin-bottom: 10px; background-image: url('../../../../big_images/grey_background.jpg');">
+                                                    <div class="dropdown">
+                                                        <div style="color:black;text-align:center;font-family :big caslon; font-size :20px; font-style :normal; font-variant :normal;font-weight :600"><u>CURRIES</u></div>
+
+                                                        <div style="display:flex;flex-direction:column;justify-content:space-around;flex-wrap:wrap;margin-bottom:0px;">
+                                                            @for (int i = 0; i < Model.Count; i++)
+                                                            {
+                                                                if (Model.ElementAt(i).Item_category_ID >= 2 && Model.ElementAt(i).Item_category_ID <= 4)
+                                                                {
+                                                                    <div style="display:flex;flex-direction:column;">
+                                                                        <img class="img-responsive" name="@(i+1)" id="item-image1" style="height:130px;padding-left:20px;padding-right:20px;margin:0px" src="@Url.Content(@Model.ElementAt(i).Item_photo)" />
+                                                                        <p class="@(i+1)" style="height:40px;padding-left:10px;color:black;margin:0px;" id="item-image1">@Model.ElementAt(i).Item_name</p>
+                                                                    </div>
+
+                                                                }
+                                                            }
+                                                        </div>
+                                                        <a id="curry" name="firstcurry" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                            <p style="margin-top:8px;font-weight:600;color:black;margin-bottom:50px;">Select Your First VEG Curry</p>
+                                                            <span style="color:black" class="caret"></span>
+                                                        </a>
+                                                        <a id="curry" name="secondcurry" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                            <p style="margin-top:8px;font-weight:600;color:black;margin-bottom:50px;">Select Your Second VEG Curry</p>
+                                                            <span style="color:black" class="caret"></span>
+                                                        </a>
+                                                        <a id="curry" name="thirdcurry" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                            <p style="margin-top:8px;font-weight:600;color:black;margin-bottom:50px;">Select Your Third VEG Curry</p>
+                                                            <span style="color:black" class="caret"></span>
+                                                        </a>
+
+                                                        <ul class="dropdown-menu" aria-labelledby="dLabel" style="margin:0px">
+                                                            @for (int i = 0; i < Model.Count; i++)
+                                                            {
+                                                                if (Model.ElementAt(i).Item_category_ID >= 2 && Model.ElementAt(i).Item_category_ID <= 4)
+                                                                {
+                                                                    <li id="mobile-list1" class="@(i+1)"><a href="#">@Model.ElementAt(i).Item_name</a></li>
+                                                                }
+                                                            }
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div style="width:30%;padding:10px;display:flex;flex-direction:column;height:440px;">
+                                                <div style="width:100%;height:300px;margin-bottom:10px;">
+                                                    <div id="standard-box" class="standard-appetizer" style="margin-bottom:10px;  color: black ;background-image: url('../../../../big_images/grey_background.jpg');">
+                                                        <div style="color:black;text-align:center;font-family :big caslon; font-size :20px; font-style :normal; font-variant :normal;font-weight :600"><u>APPETIZER</u></div>
+                                                        <img class="img-responsive" src="~/big_images/big_alootikki.PNG" style="height:130px;width:250px;padding-left:20px" /><br />
+                                                        Veg Pakora
+                                                    </div>
+                                                </div>
+                                                <div style="width:100%;height:220px;">
+                                                    <div id="standard-box" class="standard-dessert" style="margin-bottom:10px;background-image: url('../../../../big_images/grey_background.jpg');">
+                                                        <div class="dropdown">
+                                                            <div style="color:black;text-align:center;font-family :big caslon; font-size :20px; font-style :normal; font-variant :normal;font-weight :600"><u>DESSERT</u></div>
+
+                                                            <div style="display:flex;flex-direction:row;justify-content:space-around;flex-wrap:wrap;">
+                                                                @for (int i = 0; i < Model.Count; i++)
+                                                                {
+                                                                    if (Model.ElementAt(i).Item_category_ID == 7)
+                                                                    {
+                                                                        <div style="display:flex;flex-direction:column;">
+                                                                            <img class="img-responsive" name="@(i+1)" id="item-image1" style="width:200px;height:100px;padding-left:40px;padding:10px" src="@Url.Content(@Model.ElementAt(i).Item_photo)" />
+                                                                            <p class="@(i+1)" style="width:200px;height:100px;padding-left:40px;color:black" id="item-image1">@Model.ElementAt(i).Item_name</p>
+                                                                        </div>
+
+                                                                    }
+                                                                }
+                                                            </div>
+                                                            <a id="curry" name="firstdessert" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                                                <p style="margin-top:13px;font-weight:600;color:black">Select Your Desserts</p>
+                                                                <span style="color:black" class="caret"></span>
+                                                            </a>
+                                                            <ul class="dropdown-menu" aria-labelledby="dLabel" style="margin:0px">
+                                                                @for (int i = 0; i < Model.Count; i++)
+                                                                {
+                                                                    if (Model.ElementAt(i).Item_category_ID == 7)
+                                                                    {
+                                                                        <li name="@Model.ElementAt(i).item_bigphoto" id="mobile-list1" class="@(i+1)"><a href="#">@Model.ElementAt(i).Item_name</a></li>
+                                                                    }
+                                                                }
+
+                                                            </ul>
+
+
+
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                            <div style="width:35%;padding:10px;height:800px;">
+                                                <div id="standard-box" class="standard-default" style="margin-bottom:10px; margin-top; background-image: url('../../../../big_images/grey_background.jpg');">
+                                                    <div style="color:black;text-align:center;font-family :big caslon; font-size :20px; font-style :normal; font-variant :normal;font-weight :600"><u>OTHERS</u></div>
+
+                                                    <div style="display:flex;flex-direction:column;justify-content:space-around;flex-wrap:wrap;">
+                                                        <div style="display:flex;flex-direction:column">
+                                                            <img class="img-responsive" src=" ~/big_images/big_alootikki.PNG" style="height:130px;padding:10px" />
+                                                            <p style="height:30px;color:black">Naan</p>
+                                                        </div>
+                                                        <div style="display:flex;flex-direction:column">
+                                                            <img class="img-responsive" src=" ~/big_images/big_alootikki.PNG" style="height:130px;padding:10px" />
+                                                            <p style="height:30px;color:black;">Rice</p>
+                                                        </div>
+                                                        <div style="display:flex;flex-direction:column">
+                                                            <img class="img-responsive" src=" ~/big_images/big_alootikki.PNG" style="height:130px;padding:10px" />
+                                                            <p style="width:200px;height:30px;color:black">Salad</p>
+                                                        </div>
+                                                        <div style="display:flex;flex-direction:column">
+                                                            <img class="img-responsive" src=" ~/big_images/big_alootikki.PNG" style="height:130px;padding:10px" />
+                                                            <p style="width:200px;height:30px;color:black">Raita</p>
+                                                        </div>
+
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>*@
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo">
+
+                                <h4 class="panel-title" style="box-shadow: 0px 0px 10px #888;text-align:center">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo" style="padding:2px">
+                                        Build Your Own Package
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo1" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="panel-body">
+                                    <div style="display:flex;flex-direction:row;justify-content:space-between; background-image: url('../../../../big_images/grey_background.jpg');margin-bottom:20px;">
+                                        <div style="padding:7px;border-radius:10px;font-family: big caslon; font-size: 20px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px;">Custom Package must Includes atleast -:<br />1) One Appetizer <br />2) 3  Curies that you may  choose below.<br />3) Naan,Salad, Raita are complementary.<br />4) One Rice Item that you may choose below<br /> 5) One Desert that you may choose below.<br />Please click on the categories on left hand side below to see your package.</div>
+                                        <div style="padding:50px;border-radius:10px;font-family: big caslon; font-size: 20px; font-style: normal; font-variant: normal; font-weight: 900; line-height: 30px;">After Deciding Your Package Please Call Us at 469-420-9920</div>
+                                    </div>
+                                    <button id="pricecalculator" type="submit" onclick="return pricecalculator();" style="text-align:center;color:white;background-color:#2b8124;width:100%;height:40px;margin-bottom" value="Calculate your price">Calculate Your Price</button>
+                                    <div id="price" class="alert alert-success" role="alert"></div>
+
+                                    <div style="text-align:center;font-size:larger;font-weight:800"><u>Select Your Appetizers</u></div>
+                                    <div id="Appetizers" style="display:flex;flex-direction:row;width:800%;position:relative;padding:10px;">
+
+                                        @for (int k = 0; k < @Model.Count; k++)
+                                        {
+
+                                            if (Model.ElementAt(k).Item_category_ID == 1 || Model.ElementAt(k).Item_category_ID == 5)
+                                            {
+                                                <div id="mobile-menu1" category="@Model.ElementAt(k).Item_category_ID" style="display:flex;flex-direction:column;margin-top:6px;margin:20px;height:160px;">
+                                                    
+                                                        <img style="height:150px;border-radius:10px;box-shadow: 0px 0px 10px #888;" id="item-image2" name="@Model.ElementAt(k).Item_name" class="@Model.ElementAt(k).Item_category_ID" src="@Url.Content(@Model.ElementAt(k).item_bigphoto)" />
+                                                        <p style="margin-top: 10px; border-radius: 5px; height: auto; color:black;text-align:center;font-weight: 500; font-size: large;" id="item-image2" class="@Model.ElementAt(k).Item_category_ID">@Model.ElementAt(k).Item_name</p>
+                                                    <form> <input type="checkbox" value="@Model.ElementAt(k).Item_name" id="appetizercheck" name="@Model.ElementAt(k).Item_category_ID" style="-webkit-appearance:checkbox;border-radius:0"></form>
+                                                   
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                    <div style="display:flex;flex-direction:row;justify-content:center;background-color:gray;margin-bottom:80px">
+                                        <div style="text-align:center;font-size:x-large">
+                                            <span name="tag" id="leftappetizer" class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="width:5%;height:20px;margin-right:20px;"></span>
+                                        </div>
+                                        <div style="text-align:center;font-size:x-large">
+
+                                            <span name="tag" id="rightappetizer" class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="width:5%;height:20px"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div style="text-align:center;font-size:larger;font-weight:800"><u>Select Your Curries</u></div>
+                                    <div id="Curries" style="display:inline-flex;position:relative;padding:10px;">
+
+                                        @for (int k = 0; k < @Model.Count; k++)
+                                        {
+
+                                            if (Model.ElementAt(k).Item_category_ID == 2 || Model.ElementAt(k).Item_category_ID == 3 || Model.ElementAt(k).Item_category_ID == 4 || Model.ElementAt(k).Item_category_ID == 6 || Model.ElementAt(k).Item_category_ID == 7)
+                                            {
+                                                <div id="mobile-menu1" category="@Model.ElementAt(k).Item_category_ID" style="display:flex;flex-direction:column;margin-top:6px;margin:20px;height:160px;">
+
+                                                    <img style="height:150px;border-radius:10px;box-shadow: 0px 0px 10px #888;" id="item-image2" name="@Model.ElementAt(k).Item_name" class="@Model.ElementAt(k).Item_category_ID" src="@Url.Content(@Model.ElementAt(k).item_bigphoto)" />
+                                                    <p style="margin-top: 10px;  border-radius: 5px; height: auto;color:black;text-align:center; font-weight: 500; font-size: large; " id="item-image2" class="@Model.ElementAt(k).Item_category_ID">@Model.ElementAt(k).Item_name</p>
+                                                    <form>  <input type="checkbox" value="@Model.ElementAt(k).Item_name" id="currycheck" name="@Model.ElementAt(k).Item_category_ID" /></form>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                    <div class="tag" style="display:flex;flex-direction:row;justify-content:center;background-color:gray;margin-bottom:80px">
+                                        <div style="text-align:center;font-size:x-large">
+                                            <span name="tag" id="leftcurry" class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="width:5%;height:20px;margin-right:20px;"></span>
+                                        </div>
+                                        <div style="text-align:center;font-size:x-large">
+
+                                            <span name="tag" id="rightcurry" class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="width:5%;height:20px"></span>
+                                        </div>
+                                    </div>
+                                    <div style="text-align:center;font-size:larger;font-weight:800"><u>Select Your Rice And Dessert</u></div>
+                                    <div id="Dessert" style="display:inline-flex;width:800%;position:relative;padding:10px;">
+
+                                        @for (int k = 0; k < @Model.Count; k++)
+                                        {
+
+                                            if (Model.ElementAt(k).Item_category_ID == 8 || Model.ElementAt(k).Item_category_ID == 9)
+                                            {
+                                                <div id="mobile-menu1" category="@Model.ElementAt(k).Item_category_ID" style="display:flex;flex-direction:column;margin-top:6px;margin:20px;height:160px;">
+
+                                                    <img style="height:150px;border-radius:10px;box-shadow: 0px 0px 10px #888;" id="item-image2" name="@Model.ElementAt(k).Item_name" class="@Model.ElementAt(k).Item_category_ID" src="@Url.Content(@Model.ElementAt(k).item_bigphoto)" />
+                                                    <p style="margin-top: 10px;  border-radius: 5px; height: auto; color:black;text-align:center; font-weight: 500; font-size: large; " id="item-image2" class="@Model.ElementAt(k).Item_category_ID">@Model.ElementAt(k).Item_name</p>
+                                                    <form><input type="checkbox" value="@Model.ElementAt(k).Item_name" id="dessertcheck" name="@Model.ElementAt(k).Item_category_ID" /></form>
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                    <div class="tag" style="display:flex;flex-direction:row;justify-content:center;background-color:gray;margin-bottom:80px;">
+                                        <div style="text-align:center;font-size:x-large">
+                                            <span name="tag" id="leftdessert" class="glyphicon glyphicon-chevron-left" aria-hidden="true" style="width:5%;height:20px;margin-right:20px;"></span>
+                                        </div>
+                                        <div style="text-align:center;font-size:x-large">
+
+                                            <span name="tag" id="rightdessert" class="glyphicon glyphicon-chevron-right" aria-hidden="true" style="width:5%;height:20px"></span>
+                                        </div>
+                                    </div>
+                                    <div style="text-align:center;font-size:larger;font-weight:800"><u>Your Complementary Items</u></div>
+                                    <div id="Complementary1" style="display:flex;flex-direction:row;justify-content:space-around;position:relative;padding:10px;flex-wrap:wrap">
+
+                                        <div style="display:flex;flex-direction:column;margin-top:6px;margin:20px;height:160px;">
+
+                                            <img class="img-responsive" src="~/curie_image/dal_tadka.jpg" style="height:150px;border-radius:10px;width:150px;box-shadow: 0px 0px 10px #888;" />
+                                            <p style="margin-top: 10px;  border-radius: 5px; height: auto; color:black;text-align:center; font-weight: 500; font-size: large;width:150px; " id="item-image2">Naan</p>
+
+                                        </div>
+                                        <div style="display:flex;flex-direction:column;margin-top:6px;margin:20px;height:160px;">
+                                            <img src="~/curie_image/Veg_Briyani.jpg" style="height:150px;border-radius:10px;width:150px;" />
+                                            <p style="margin-top: 10px;  border-radius: 5px; height: auto; color:black;text-align:center; font-weight: 500; font-size: large; width:150px;" id="item-image2">Salad</p>
+                                        </div>
+                                        <div style="display:flex;flex-direction:column;margin-top:6px;margin:20px;height:160px;">
+                                            <img src="~/curie_image/Veg_Briyani.jpg" style="height:150px;border-radius:10px;width:150px;" />
+                                            <p style="margin-top: 10px;  border-radius: 5px; height: auto; color:black;text-align:center; font-weight: 500; font-size: large; width:150px;" id="item-image2">Salad</p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

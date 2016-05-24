@@ -1,0 +1,525 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C544A6E1-8CBB-469F-B6ED-F10EBBE26BA2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Urban_Tadka</RootNamespace>
+    <AssemblyName>Urban_Tadka</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Entity">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.EnterpriseServices">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="big_images\1cater.jpg" />
+    <Content Include="big_images\backgroundgrad[1].jpg" />
+    <Content Include="big_images\big_alootikki.PNG" />
+    <Content Include="big_images\big_chilipaneer.PNG" />
+    <Content Include="big_images\big_desifrie.PNG" />
+    <Content Include="big_images\big_fishpakora.PNG" />
+    <Content Include="big_images\big_onionpakora.PNG" />
+    <Content Include="big_images\big_paneerpakora.PNG" />
+    <Content Include="big_images\big_ricekabab.PNG" />
+    <Content Include="big_images\big_samosa.PNG" />
+    <Content Include="big_images\big_shrimppakora.PNG" />
+    <Content Include="big_images\big_vegpakora.PNG" />
+    <Content Include="big_images\caterin_back.jpg" />
+    <Content Include="big_images\grey_background.jpg" />
+    <Content Include="big_images\mobile background.PNG" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="curie_image\Achari_Aloo.jpg" />
+    <Content Include="curie_image\chicken tikka.PNG" />
+    <Content Include="curie_image\chicken_makhni.jpg" />
+    <Content Include="curie_image\dal_tadka.jpg" />
+    <Content Include="curie_image\gulab jamun.PNG" />
+    <Content Include="curie_image\img_6845-002[1].jpg" />
+    <Content Include="curie_image\indian-cuisine-recipes-vegetarian[1].jpg" />
+    <Content Include="curie_image\saag_paneer.jpg" />
+    <Content Include="curie_image\Samosa.jpg" />
+    <Content Include="curie_image\Veg_Briyani.jpg" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\grey_background.jpg" />
+    <Content Include="Images\main-page-image.jpg" />
+    <Content Include="Images\Samosa.jpg" />
+    <Content Include="Images\about.PNG" />
+    <Content Include="Images\chicken makhni.jpe" />
+    <Content Include="Images\chicken tikka.PNG" />
+    <Content Include="Images\dal makhni.jpe" />
+    <Content Include="Images\garlic naan.jpe" />
+    <Content Include="Images\goat saag.jpe" />
+    <Content Include="Images\gulab jamun.PNG" />
+    <Content Include="Images\ice tea.jpe" />
+    <Content Include="Images\indian spices.PNG" />
+    <Content Include="Images\tandoori_chicken.jpg" />
+    <Content Include="Images\logo.PNG" />
+    <Content Include="Images\paneer tikka masasl.jpg" />
+    <Content Include="Images\small.jpg" />
+    <Content Include="Images\indian_spices2.jpg" />
+    <Content Include="Areas\Common\Views\Home\Index.cshtml" />
+    <Content Include="Images\indian_spices.jpg" />
+    <Content Include="Images\UrbanTadka-Irving-TX.jpeg" />
+    <Content Include="large_images\big_alootikki.jpg" />
+    <Content Include="large_images\big_chicken_pakora.PNG" />
+    <Content Include="large_images\big_chili_paneer.jpg" />
+    <Content Include="large_images\big_desi_fries.jpg" />
+    <Content Include="large_images\Big_fish_pakora.jpg" />
+    <Content Include="large_images\big_onion_pakora.jpg" />
+    <Content Include="large_images\big_paneerpakora.PNG" />
+    <Content Include="large_images\big_ricekabab.jpg" />
+    <Content Include="large_images\big_samosa.jpg" />
+    <Content Include="large_images\big_shrimp_spicy.jpg" />
+    <Content Include="large_images\big_veg_pakora.jpg" />
+    <Content Include="large_images\chicken\big_butter.jpg" />
+    <Content Include="large_images\chicken\big_chicken_curry.jpg" />
+    <Content Include="large_images\chicken\big_chicken_korma.png" />
+    <Content Include="large_images\chicken\big_chicken_makhni.jpg" />
+    <Content Include="large_images\chicken\big_chicken_saagwala.png" />
+    <Content Include="large_images\chicken\big_kashmiri_chicken.JPG" />
+    <Content Include="large_images\chicken\Chicken-Vindaloo.jpg" />
+    <Content Include="large_images\chicken\_tadka.jpg" />
+    <Content Include="large_images\dals\big%29rajma.jpg" />
+    <Content Include="large_images\dals\Big_Dal_bukhara.jpg" />
+    <Content Include="large_images\dals\Big_dal_lasuni.PNG" />
+    <Content Include="large_images\dals\big_dal_makhni.jpg" />
+    <Content Include="large_images\dals\big_dal_panjratni.jpg" />
+    <Content Include="large_images\dals\big_dal_tadka.jpg" />
+    <Content Include="large_images\dals\big_kadi_pakora.jpg" />
+    <Content Include="large_images\dals\big_wadi lajawab.jpg" />
+    <Content Include="large_images\dals\chana-masala.png" />
+    <Content Include="large_images\dessert\chai.jpg" />
+    <Content Include="large_images\dessert\gajar_halwa.PNG" />
+    <Content Include="large_images\dessert\kheer.PNG" />
+    <Content Include="large_images\dessert\kulfi_large.jpg" />
+    <Content Include="large_images\dessert\mango lassi.jpg" />
+    <Content Include="large_images\dessert\rabdi.PNG" />
+    <Content Include="large_images\dessert\rasmalai.PNG" />
+    <Content Include="large_images\dessert\salt lassi.png" />
+    <Content Include="large_images\dessert\small_gulab_jamun.PNG" />
+    <Content Include="large_images\dessert\soad.jpg" />
+    <Content Include="large_images\dessert\sweet lassi.jpg" />
+    <Content Include="large_images\lamb\goat saag.jpg" />
+    <Content Include="large_images\lamb\goat_curry.jpg" />
+    <Content Include="large_images\lamb\korma.jpg" />
+    <Content Include="large_images\lamb\Lamb-Curry.jpg" />
+    <Content Include="large_images\lamb\Lamb-Saagwala-2.jpg" />
+    <Content Include="large_images\lamb\lamb_kashmiri.jpg" />
+    <Content Include="large_images\lamb\lamb_vindalo.jpg" />
+    <Content Include="large_images\Paneer\big_chili_paneer.jpg" />
+    <Content Include="large_images\Paneer\big_mutter_paneer.jpg" />
+    <Content Include="large_images\Paneer\big_paneer_achari.jpg" />
+    <Content Include="large_images\Paneer\big_paneer_bhurji.jpg" />
+    <Content Include="large_images\Paneer\big_paneer_makhni.jpg" />
+    <Content Include="large_images\Paneer\big_paneer_tikka_masala.jpg" />
+    <Content Include="large_images\Paneer\big_pudina_paneer.jpg" />
+    <Content Include="large_images\Paneer\big_saag_paneer.jpg" />
+    <Content Include="large_images\Paneer\big_shahi_paneer.jpg" />
+    <Content Include="large_images\Paneer\kadai-paneer.jpg" />
+    <Content Include="large_images\rice\big_chicken_briyani.jpg" />
+    <Content Include="large_images\rice\big_goat_briyani.jpg" />
+    <Content Include="large_images\rice\Big_Jeera_rice.jpg" />
+    <Content Include="large_images\rice\big_khichdi.jpg" />
+    <Content Include="large_images\rice\big_lamb_briyani.jpg" />
+    <Content Include="large_images\rice\Big_rice.jpg" />
+    <Content Include="large_images\rice\big_veg_briyani.jpg" />
+    <Content Include="large_images\rice\big_Veg_pulao.jpg" />
+    <Content Include="large_images\sabji\big_allo_ki_launji.jpg" />
+    <Content Include="large_images\sabji\big_bhindi.jpg" />
+    <Content Include="large_images\sabji\big_eggcurry.jpg" />
+    <Content Include="large_images\sabji\big_eggg_bhurjui.jpg" />
+    <Content Include="large_images\sabji\big_gobhi.jpg" />
+    <Content Include="large_images\sabji\big_mashroom.jpg" />
+    <Content Include="large_images\sabji\big_mix_veg.jpg" />
+    <Content Include="large_images\sabji\big_veg_korma.jpg" />
+    <Content Include="large_images\sabji\bsingan.jpg" />
+    <Content Include="large_images\sabji\kofta.jpg" />
+    <Content Include="large_images\tandoor\big_chicken_tikka.jpg" />
+    <Content Include="large_images\tandoor\big_paneer_tikka.JPG" />
+    <Content Include="large_images\tandoor\big_reshmi_chicken.jpg" />
+    <Content Include="large_images\tandoor\big_seekh_kabab.jpg" />
+    <Content Include="Scripts\bootstrap.css" />
+    <Content Include="Scripts\bootstrap.css.map" />
+    <Content Include="Areas\Common\Views\Shared\_layout.cshtml" />
+    <Content Include="Areas\Common\Views\Home\Buffet_Menu.cshtml" />
+    <Content Include="Areas\Common\Views\Home\locate.cshtml" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap1.js" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Content\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Content\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\bootstrap\mixins\_tab-focus.scss" />
+    <Content Include="Content\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Content\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\bootstrap\mixins\_reset-filter.scss" />
+    <Content Include="Content\bootstrap\mixins\_pulls.scss" />
+    <Content Include="Content\bootstrap\mixins\_progress.scss" />
+    <Content Include="Content\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\bootstrap\mixins\_navbar-align.scss" />
+    <Content Include="Content\bootstrap\mixins\_lists.scss" />
+    <Content Include="Content\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\bootstrap\mixins\_label.scss" />
+    <Content Include="Content\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\bootstrap\mixins\_hover.scss" />
+    <Content Include="Content\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\bootstrap\mixins\_center-block.scss" />
+    <Content Include="Content\bootstrap\mixins\_cards.scss" />
+    <Content Include="Content\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Content\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Content\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Content\bootstrap\bootstrap-flex.scss" />
+    <Content Include="Content\bootstrap\bootstrap.scss" />
+    <Content Include="Content\bootstrap\_variables.scss" />
+    <Content Include="Content\bootstrap\_utilities-spacing.scss" />
+    <Content Include="Content\bootstrap\_utilities-responsive.scss" />
+    <Content Include="Content\bootstrap\_utilities-background.scss" />
+    <Content Include="Content\bootstrap\_utilities.scss" />
+    <Content Include="Content\bootstrap\_type.scss" />
+    <Content Include="Content\bootstrap\_tooltip.scss" />
+    <Content Include="Content\bootstrap\_tables.scss" />
+    <Content Include="Content\bootstrap\_responsive-embed.scss" />
+    <Content Include="Content\bootstrap\_reboot.scss" />
+    <Content Include="Content\bootstrap\_progress.scss" />
+    <Content Include="Content\bootstrap\_print.scss" />
+    <Content Include="Content\bootstrap\_popover.scss" />
+    <Content Include="Content\bootstrap\_pagination.scss" />
+    <Content Include="Content\bootstrap\_pager.scss" />
+    <Content Include="Content\bootstrap\_normalize.scss" />
+    <Content Include="Content\bootstrap\_navbar.scss" />
+    <Content Include="Content\bootstrap\_nav.scss" />
+    <Content Include="Content\bootstrap\_modal.scss" />
+    <Content Include="Content\bootstrap\_mixins.scss" />
+    <Content Include="Content\bootstrap\_media.scss" />
+    <Content Include="Content\bootstrap\_list-group.scss" />
+    <Content Include="Content\bootstrap\_labels.scss" />
+    <Content Include="Content\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\bootstrap\_input-group.scss" />
+    <Content Include="Content\bootstrap\_images.scss" />
+    <Content Include="Content\bootstrap\_grid.scss" />
+    <Content Include="Content\bootstrap\_forms.scss" />
+    <Content Include="Content\bootstrap\_dropdown.scss" />
+    <Content Include="Content\bootstrap\_custom-forms.scss" />
+    <Content Include="Content\bootstrap\_code.scss" />
+    <Content Include="Content\bootstrap\_close.scss" />
+    <Content Include="Content\bootstrap\_carousel.scss" />
+    <Content Include="Content\bootstrap\_card.scss" />
+    <Content Include="Content\bootstrap\_buttons.scss" />
+    <Content Include="Content\bootstrap\_button-group.scss" />
+    <Content Include="Content\bootstrap\_breadcrumb.scss" />
+    <Content Include="Content\bootstrap\_animation.scss" />
+    <Content Include="Content\bootstrap\_alert.scss" />
+    <Content Include="Areas\Common\Views\Home\Login.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Item_Info.cshtml" />
+    <Content Include="Areas\Common\Views\Home\EditorTemplates\Item_Info.cshtml" />
+    <Content Include="Areas\Common\Views\Home\cater.cshtml" />
+    <Content Include="Areas\Common\Views\Home\cater1.cshtml" />
+    <None Include="Properties\PublishProfiles\UrbanTadka %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\UrbanTadka %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\UrbanTadka %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\UrbanTadka.pubxml" />
+    <None Include="Properties\PublishProfiles\urbantadkairving %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\urbantadkairving.pubxml" />
+    <None Include="Properties\PublishProfiles\Urban_Tadka.pubxml" />
+    <None Include="Scripts\jquery-2.0.0.intellisense.js" />
+    <Content Include="Scripts\jquery-2.0.0.js" />
+    <Content Include="Scripts\jquery-2.0.0.min.js" />
+    <Content Include="Scripts\jquery-2.0.0.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Home.css" />
+    <Content Include="Scripts\slick.min.js" />
+    <Content Include="slick.css" />
+    <Content Include="small_images\chcken\chcken_vindallo.PNG" />
+    <Content Include="small_images\chcken\smallbutter_chicken.PNG" />
+    <Content Include="small_images\chcken\small_chcekn_dhansak.PNG" />
+    <Content Include="small_images\chcken\small_chicekn _curry.jpg" />
+    <Content Include="small_images\chcken\small_chicken tikka.PNG" />
+    <Content Include="small_images\chcken\small_chicken_korma.PNG" />
+    <Content Include="small_images\chcken\small_chicken_saag.PNG" />
+    <Content Include="small_images\chcken\small_kashmiri_cjicken.PNG" />
+    <Content Include="small_images\dals\small_chana_masala.PNG" />
+    <Content Include="small_images\dals\small_daal_bukhara.PNG" />
+    <Content Include="small_images\dals\small_daal_lasusni.PNG" />
+    <Content Include="small_images\dals\small_daal_panjratni.PNG" />
+    <Content Include="small_images\dals\small_dal_makhni.PNG" />
+    <Content Include="small_images\dals\small_dal_tadka.PNG" />
+    <Content Include="small_images\dals\small_kadi_pakora.jpg" />
+    <Content Include="small_images\dals\small_rajma.PNG" />
+    <Content Include="small_images\dals\small_wadilajawab.PNG" />
+    <Content Include="small_images\dessert\mango_lassi.PNG" />
+    <Content Include="small_images\dessert\patiala_lassi.PNG" />
+    <Content Include="small_images\dessert\salt_lassi.PNG" />
+    <Content Include="small_images\dessert\small_chai.PNG" />
+    <Content Include="small_images\dessert\small_kulfi.jpg" />
+    <Content Include="small_images\dessert\soad.jpg" />
+    <Content Include="small_images\lamb\lamb_saag.PNG" />
+    <Content Include="small_images\lamb\lamb_vindalo.jpg" />
+    <Content Include="small_images\lamb\small_goat_curyy.PNG" />
+    <Content Include="small_images\lamb\small_goat_saag.PNG" />
+    <Content Include="small_images\lamb\small_lamb.PNG" />
+    <Content Include="small_images\lamb\small_lamb_curry.jpg" />
+    <Content Include="small_images\lamb\small_lamb_korma.PNG" />
+    <Content Include="small_images\onion Pakora.PNG" />
+    <Content Include="small_images\Paneer\small_achari_paneer.PNG" />
+    <Content Include="small_images\Paneer\small_chilli_paneer.PNG" />
+    <Content Include="small_images\Paneer\small_kadai_paneer.PNG" />
+    <Content Include="small_images\Paneer\small_matar_paneer.PNG" />
+    <Content Include="small_images\Paneer\small_paneer_bhurji.jpg" />
+    <Content Include="small_images\Paneer\small_paneer_makhni.PNG" />
+    <Content Include="small_images\Paneer\small_paneer_tm.PNG" />
+    <Content Include="small_images\Paneer\small_pudina_paneer.JPG" />
+    <Content Include="small_images\Paneer\small_saag_paneer.PNG" />
+    <Content Include="small_images\Paneer\small_shahi_paneer.jpg" />
+    <Content Include="small_images\rice\small_chicken_briyani.PNG" />
+    <Content Include="small_images\rice\small_goat_briyani.PNG" />
+    <Content Include="small_images\rice\Small_jeera_rice.png" />
+    <Content Include="small_images\rice\small_khichdi.PNG" />
+    <Content Include="small_images\rice\small_lamb_briyani].PNG" />
+    <Content Include="small_images\rice\small_plain_rice.jpg" />
+    <Content Include="small_images\rice\small_veg_briyani.PNG" />
+    <Content Include="small_images\rice\small_veg_pulao.PNG" />
+    <Content Include="small_images\sabjis\small_alookilaunji.PNG" />
+    <Content Include="small_images\sabjis\small_baigan.PNG" />
+    <Content Include="small_images\sabjis\small_bhindi.PNG" />
+    <Content Include="small_images\sabjis\small_egg_bhrji.PNG" />
+    <Content Include="small_images\sabjis\small_egg_curry.PNG" />
+    <Content Include="small_images\sabjis\small_gobhie.PNG" />
+    <Content Include="small_images\sabjis\small_kofta.PNG" />
+    <Content Include="small_images\sabjis\small_masala_guchi.PNG" />
+    <Content Include="small_images\sabjis\small_mix_veg.PNG" />
+    <Content Include="small_images\sabjis\small_veg_korma.PNG" />
+    <Content Include="small_images\samosa_small.PNG" />
+    <Content Include="small_images\small_chicken_pakora.PNG" />
+    <Content Include="small_images\small_chilli_paneer.PNG" />
+    <Content Include="small_images\small_desi_fries1.jpg" />
+    <Content Include="small_images\small_fish_pakora.PNG" />
+    <Content Include="small_images\small_paneer_pakora.PNG" />
+    <Content Include="small_images\small_ricekabab.PNG" />
+    <Content Include="small_images\small_shrimp_pakora.PNG" />
+    <Content Include="small_images\small_veg_pakora.PNG" />
+    <Content Include="small_images\Tandoor\small_chcken_tikka.PNG" />
+    <Content Include="small_images\Tandoor\small_paneer_tikka.PNG" />
+    <Content Include="small_images\Tandoor\small_reshmi_chicken.PNG" />
+    <Content Include="small_images\Tandoor\small_seekh_kabab.PNG" />
+    <Content Include="small_images\Tandoor\small_tandoori_chicken.PNG" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
+    <Compile Include="Areas\Common\CommonAreaRegistration.cs" />
+    <Compile Include="Areas\Common\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Security\SecurityAreaRegistration.cs" />
+    <Compile Include="Areas\User\UserAreaRegistration.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Areas\Common\Views\web.config" />
+    <Content Include="Areas\User\Views\web.config" />
+    <Content Include="Areas\Administrator\Views\web.config" />
+    <Content Include="Areas\Security\Views\web.config" />
+    <Content Include="Views\Editor Templates\Item_Info.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administrator\Controllers\" />
+    <Folder Include="Areas\Administrator\Models\" />
+    <Folder Include="Areas\Administrator\Views\Shared\" />
+    <Folder Include="Areas\Common\Models\" />
+    <Folder Include="Areas\Common\Views\Home\Editor Templates\" />
+    <Folder Include="Areas\Security\Controllers\" />
+    <Folder Include="Areas\Security\Models\" />
+    <Folder Include="Areas\Security\Views\Shared\" />
+    <Folder Include="Areas\User\Controllers\" />
+    <Folder Include="Areas\User\Models\" />
+    <Folder Include="Areas\User\Views\Shared\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Urban_BLL\Urban_BLL.csproj">
+      <Project>{b9cbd359-a1aa-451d-9522-ae21825207b1}</Project>
+      <Name>Urban_BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Urban_BOL\Urban_BOL.csproj">
+      <Project>{d9fd1c14-0147-4113-bc26-435aea7b7966}</Project>
+      <Name>Urban_BOL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55910</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55910/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

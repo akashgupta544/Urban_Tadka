@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="UTEntitiesContext-Web.config Connection String" description="UTEntitiesContext Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/UrbanTadkaModel.csdl|res://*/UrbanTadkaModel.ssdl|res://*/UrbanTadkaModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=urbantadka.database.windows.net;initial catalog=urbantadka;user id=ServerAdmin@urbantadka;password=admin123!;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\user\ name\\documents\\visual\ studio\ 2013\\Projects\\Urban_Tadka\\Urban_Tadka\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='UTEntitiesContext']/@connectionString" />
+  </parameter>
+</parameters>

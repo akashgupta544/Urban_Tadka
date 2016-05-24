@@ -1,0 +1,271 @@
+﻿@model IList<Urban_BOL.Item_Info>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, height=device-height">
+    <script src="~/Scripts/jquery-2.0.0.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Scripts/bootstrap.css" rel="stylesheet" />
+    <link href="~/Home.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap1.js"></script>
+
+        <script type="text/javascript">
+            var c = 0;
+            $(document).ready(function () {
+                if (window.innerWidth > 767) {
+                    $('.top-bar').hover(function () { $(this).css('background-color', '#F75D59') }).mouseout(function () { $(this).css('background-color', 'white') });
+                }
+            $('a[id="category-bar"]').each(function () {
+                var a = $(this).attr('hrefvalue');
+                $(this).attr('href', '#' + a + '');
+            })
+            $('#saver').hide();
+            if (window.innerWidth <=767) {
+                $('.top-bar').css('background-color', '#9F000F');
+                $('#saver').show();
+                $('#menu-icon').click(function () {
+                    $('#saver').css('height', '150px')
+                    c++
+
+                    if (c % 2 != 0) {
+                        $('#mobile-login').animate({ 'top': 200 });
+                    }
+                    else {
+                        $('#mobile-login').animate({ 'top': 0 });
+                        $('#saver').css('height', '30px')
+                    }
+
+                })
+                
+            }
+        });
+            $(document).ready(function () {
+                $('#message').toggle();
+                $('#edit-section').toggle();
+            })
+            $(document).ready(function () {
+                $('div[id="submit-button"]').click(function () {
+                    var a = $('input[id="exampleInputEmail1"]').val();
+                   
+                    var b = $('input[id="exampleInputPassword1"]').val();
+                   
+                    
+                   if(a=="akashgupta@gmail.com"&&  b =="akash"){
+                        $('#edit-section').toggle();
+                        $('#form-section').hide();
+                   }
+                   else {
+                       $('#message').toggle(0);
+                   }
+                })
+            })
+
+        </script>
+    <title>Login</title>
+</head>
+<body>
+    <nav class="navbar navbar-default" style="height:100px; background-color:white">
+        <div class="container-fluid" style="background-color:white">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" id="menu-icon" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="margin:0px;padding:0px"><img id="logo" style="height:99px;width:150%;border-bottom:solid;border-color:rgba(203, 209, 206, 0.92)" class="img-responsive center-block" alt="Responsive image" src="~/Images/logo.PNG" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding-top:20px;background-color:white;">
+                <ul class="nav navbar-nav" style="margin-left:30px" id="nav">
+
+                    <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("HOME", "index")</li>
+                    <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("CONTACT US", "Locate")</li>
+                    <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("CATER WITH US", "Cater")</li>
+
+                    <li class="top-bar">
+                        <button class="top-bar" style="font-size:large;padding:11.8px;font-weight:500;color:grey;background-color:white;border:none
+" data-toggle="modal" data-target="#mymodal">
+                            HOURS
+                        </button>
+                    </li>
+
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="top-bar" style="font-size:large;font-weight:500">@Html.ActionLink("TODAY'S BUFFET MENU", "Buffet_Menu")</li>
+
+                    <li class="dropdown" style="font-size:large;padding:11.8px;background-color:white;border:none">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:large;padding:5px;border:solid">
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Admin Login", "Login")</a></li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div id="saver" style="height:30px"></div>
+  
+    <div class="modal fade" tabindex="-1" role="dialog" id="mymodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" style="color:white;font-weight:900;text-align:center">HOURS</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table" style="background-color:grey; font-weight:900">
+                        <thead>
+                            <tr>
+                                <th> DAYS</th>
+                                <th> LUNCH</th>
+                                <th> DINNER</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MONDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td style="background-color:white">TUESDAY</td>
+                                <td colspan="2" style="background-color:white">WE ARE CLOSED ON EVERY TUESDAY</td>
+
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>WEDNESDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>THURSDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>FRIDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>SATURDAY</td>
+                                <td>11.00AM - 3.00PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>SUNDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div id="mobile-login" style="position:relative">
+        <div id="form-section" style="margin:10px">
+            <form>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div id="submit-button" style="color:white;box-shadow: 0px 0px 10px #888;border-radius: 10px;margin-bottom:10px;width:100px;height:30px;text-align:center; background-color:#cf3939;font-size:large;padding:2px;font-weight:500">submit</div>
+            </form>
+
+            <div id="message">Mismatch Between Username and Password. Please<text>@Html.ActionLink("Try Again", "login")</text></div>
+        </div>
+        <div id="edit-section">
+            <div id="successfull" style="color:green;font-weight:800;margin-bottom:20px;"> Successfully Logged In</div>
+            @using (Html.BeginForm())
+        {
+            for (int i = 0; i < Model.Count; i++)
+            {
+                int j = (int)@Model.ElementAt(i).Item_category_ID;
+                <a id="category-bar" hrefvalue="@(i+1)" class="btn btn-primary" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" style="width:100%;height:45px;font-weight:700;background-color:#990012; box-shadow: 0px 0px 10px #888;border-color:#888">
+                    <span>Select Your</span> @Model.ElementAt(i).Category_info.category_name
+                </a>
+
+                <div class="collapse" id="@(i+1)">
+
+                    <div id="buffet-menu-item" class="well">
+                        @for (int k = i; k < Model.Count; k++)
+                        {
+
+                            if (Model.ElementAt(k).Item_category_ID != j && k != 0)
+                            { break; }
+
+                            <div id="buffet-item">
+
+                                <img id="buffet-menu-image" class="img-responsive" src="@Url.Content(@Model.ElementAt(k).item_bigphoto)" alt="...">@Html.CheckBoxFor(model => model[k].Is_Buffet)
+
+                                <div class="media-body" style="width:30%;font-size:medium; height:30px;">
+                                    <h3 style="margin-top:2px">@Html.DisplayFor(model => model[i].Item_name)</h3>
+
+                                </div>
+                            </div>
+                                j = (int)Model.ElementAt(k).Item_category_ID;
+
+
+
+                            i++;
+                        }
+                    </div>
+                </div>
+
+
+            }
+
+            for (int l = 0; l < Model.Count; l++)
+            {
+                @Html.HiddenFor(model => model[l].Item_ID)
+                @Html.HiddenFor(model => model[l].Item_name)
+            }
+
+
+            <input type="submit" style="width:20%" value="Save" class="btn btn-primary btn-lg" />
+        }
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+</body>
+</html>

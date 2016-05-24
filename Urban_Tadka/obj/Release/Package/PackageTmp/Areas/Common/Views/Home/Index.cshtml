@@ -1,0 +1,666 @@
+﻿@model IList<Urban_BOL.Item_Info>
+@using Urban_BOL;
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Urban Tadka Menu</title>
+   
+    <script src="~/Scripts/jquery-2.0.0.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, height=device-height">
+    <script src="~/Scripts/slick.min.js"></script>
+    <link href="~/slick.css" rel="stylesheet" />
+    <script src="~/Scripts/slick.min.js"></script>
+    <link href="~/Scripts/bootstrap.css" rel="stylesheet" />
+    <link href="~/Home.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap1.js"></script>
+    <script type="text/javascript">
+        var a;
+        var b;
+        var c = 0;
+        var d = 0;
+        $(document).ready(function () {
+            $(document).bind("mobileinit", function () {
+                // jQuery Mobile's Ajax navigation does not work in all cases (e.g.,
+                // when navigating from a mobile to a non-mobile page), especially when going back, hence disabling it.
+                $.extend($.mobile, {
+                    ajaxEnabled: false
+                });
+            });
+
+            if (window.innerWidth > 1150) {
+                $('#slider1').slick({
+                    autoplay: true, arrows: false,
+                    autoplaySpeed: 6500, mobileFirst: true
+                });
+
+
+                $('#slider2').slick({
+                    autoplay: true, arrows: false,
+                    autoplaySpeed: 2000, mobileFirst: true
+                });
+                $('#saver').hide();
+                $('div[id="tab-image"]').toggle(0);
+                $('#mobile').hide();
+                $('#main-section').show();
+                $('#mobile-section').hide();
+               
+
+                $('img[id ="big-image').each(function () {
+                    $(this).hide();
+                });
+                $('table[id ="big-image').each(function () {
+                    $(this).hide();
+                });
+                $('.description').hide();
+                $('.description1').hide();
+
+
+
+                $('.top-bar').css('background-color', 'white');
+                $('.top-bar').hover(function () { $(this).css('background-color', '#F75D59') }).mouseout(function () { $(this).css('background-color', 'white') });
+                $('img[id="item-image"]').each(function () {
+                    if ($(this).attr('class') != "1") {
+                        $(this).toggle(0);
+                        $(this).css('display', 'none');
+                    }
+                  
+                })
+                $('p[id="item-image"]').each(function () {
+                    if ($(this).attr('class') != "1") {
+                        $(this).hide();
+                    }
+                })
+
+                $('button[id="categories"]').each(function () {
+                    $(this).click(function () {
+                        $('img[id="item-image"]').each(function () {
+                            $(this).hide();
+                        })
+                        $('p[id="item-image"]').each(function () {
+                            $(this).hide();
+                        })
+                        a = ($(this).attr('name'));
+                        $('#any').html(($(this).attr('name')));
+                        $('img[class=' + a + ']').each(function () {
+                            $(this).toggle(0, "swing");
+                        }).fadeOut(0).fadeIn(1500, "swing");
+                        $('p[class=' + a + ']').each(function () {
+                            $(this).toggle(0, "swing");
+                        }).fadeOut(0).fadeIn(1500, "swing");
+                    })
+
+                })
+
+                //$('img[id="item-image"]').each(function () {
+                //    $(this).click(function () {
+                //        $('img[id ="big-image').each(function () {
+                //            $(this).hide();
+                //        });
+                //        $('img[id ="big-image1').each(function () {
+                //            $(this).hide();
+                //        });
+                //        $('table[id ="big-image').each(function () {
+                //            $(this).hide();
+                //        });
+                //        $('table[id ="big-image1').each(function () {
+                //            $(this).hide();
+                //        });
+                //        $('.description').hide();
+                //        $('.description1').hide();
+                //        b = $(this).attr('name');
+                //        var k = parseInt($(this).attr('count'));
+
+                //        if (k < 47) {
+                //            $('.description').show();
+
+                //        }
+                //        else { $('.description1').show(); }
+                //        $('img[name= "' + b + '"]').each(function () {
+                //            $(this).show();
+                //        });
+                //        $('img[name= "' + b + '"]').each(function () {
+                //            $(this).show();
+                //        });
+                //        $('img[name= "' + b + '"]').each(function () {
+                //            $(this).show();
+                //        });
+                //        $('table[name="' + b + '"]').each(function () {
+                //            $(this).show();
+                //        });
+                //        $('table[name="' + b + '"]').each(function () {
+                //            $(this).show();
+                //        });
+
+                //    });
+
+                //})
+                $('td[id="close-button"]').click(function () {
+                    $('img[id ="big-image').each(function () {
+                        $(this).hide();
+                    });
+                    $('table[id ="big-image').each(function () {
+                        $(this).hide();
+                    });
+                    $('.description').hide();
+                });
+               
+                   
+                
+            }
+            //for tablet
+
+            if (window.innerWidth <= 1150 && window.innerWidth >= 520) {
+                if (window.innerWidth <= 1150 && window.innerWidth > 767)
+                {
+                    $('.top-bar').css('background-color', 'white');
+                    $('.top-bar').hover(function () { $(this).css('background-color', '#F75D59') }).mouseout(function () { $(this).css('background-color', 'white') });
+
+                 
+                }
+                else {
+                    $('.top-bar').css('background-color', '#9F000F');
+                }
+               
+                $('#mobile').hide();
+                
+                $('.description').hide();
+                $('.description1').hide();
+                $('#itemslist').hide();
+                $('div[class="row"]').hide();
+                $('img[id="item-image"]').each(function () {
+                    if ($(this).attr('class') != "1") {
+                        $(this).toggle(0);
+                    }
+                })
+                $('p[id="item-image"]').each(function () {
+                    if ($(this).attr('class') != "1") {
+                        $(this).hide();
+                    }
+                })
+                $(document).ready(function () {
+                    $('li[id="mobile-list"]').each(function () {
+                        $(this).click(function () {
+                            $('img[id="item-image"]').each(function () {
+                                $(this).hide();
+                            })
+                            $('p[id="item-image"]').each(function () {
+                                $(this).hide();
+                            })
+                            a = ($(this).attr('class'));
+                            b = ($(this).attr('name'));
+
+                            $('p[id="mob-category"]').html(b);
+                            $('img[class =' + a + ']').each(function () {
+                                $(this).show(0, "swing");
+                            }).fadeOut(0).fadeIn(1500, "swing");
+                            $('p[class=' + a + ']').each(function () {
+                                $(this).show(0, "swing");
+                            }).fadeOut(0).fadeIn(1500, "swing");
+                        })
+
+                    })
+                });
+                $('#saver').hide();
+                $('.sliders').hide();
+              
+                $('#menu-icon').click(function () {
+                    c++
+
+                    if (c % 2 != 0) {
+                        $('#main-section').animate({ 'top': 300 });
+                    }
+                    else {
+                        $('#main-section').animate({ 'top': 20 });
+                    }
+
+                })
+
+            }
+                //  for mobile
+            else {
+                if (window.innerWidth < 520) {
+                    var d = window.innerWidth;
+                    $('#footer').hide();
+                    $('div[id="mobile-body"]').css('width', d);
+                    $('div[id="mobile-section"]').css('width', d);
+                    $('img[id="mob-image"]').css('width', d);
+                    $('#mob-image').css('width', d);
+                    $('.top-bar').css('background-color', '#8C001A');
+                    $('div[id="main-section"]').hide();
+                    $('.sliders').hide();
+                    $('.description').hide();
+                    $('.description1').hide();
+                    $('#any').html($('div[class="menu-items"]').outerHeight);
+                    $('img[id="item-image"]').each(function () {
+                        if ($(this).attr('class') != "1") {
+                            $(this).hide();
+                        }
+                    })
+                    $('p[id="item-image"]').each(function () {
+                        if ($(this).attr('class') != "1") {
+                            $(this).hide();
+                        }
+                    })
+                    $(document).ready(function () {
+                        $('li[id="mobile-list"]').each(function () {
+                            $(this).click(function () {
+                                $('img[id="item-image"]').each(function () {
+                                    $(this).hide();
+                                })
+                                $('p[id="item-image"]').each(function () {
+                                    $(this).hide();
+                                })
+                                a = ($(this).attr('class'));
+                                b = ($(this).attr('name'));
+
+                                $('p[id="mob-category"]').html(b);
+                                $('img[class=' + a + ']').each(function () {
+                                    $(this).show(0, "swing");
+                                }).fadeOut(0).fadeIn(1500, "swing");
+                                $('p[class=' + a + ']').each(function () {
+                                    $(this).show(0, "swing");
+                                }).fadeOut(0).fadeIn(1500, "swing");
+                            })
+
+                        })
+                    });
+                    $('#menu-icon').click(function () {
+                        $('#saver').css('height', '150px')
+                        c++
+
+                        if (c % 2 != 0) {
+                            $('#mobile').animate({ 'top': 200 });
+                        }
+                        else {
+                            $('#mobile').animate({ 'top': 0 });
+                            $('#saver').css('height', '30px')
+                        }
+
+                    })
+
+                }
+            }
+            $(window).resize(function () {
+                $('#any').html(window.innerWidth);
+                var d = window.innerWidth;
+                $('img[id="mob-image"]').css('width', d);
+
+            });
+
+
+
+        });
+
+
+    </script>
+
+
+
+
+    @*<title>Index</title>*@
+
+</head>
+<body>
+    @*<div id="any"></div>*@
+    @{
+        String[] str = new String[200];
+        String[] unique = new String[100];
+        String[] image_path = new String[200];
+
+    }
+
+
+    <nav class="navbar navbar-default" style="height:100px; background-color:white">
+        <div class="container-fluid" style="background-color:white">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" id="menu-icon" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="margin:0px;padding:0px"><img id="logo" style="height:99px;width:150%;border-bottom:solid;border-color:rgba(203, 209, 206, 0.92)" class="img-responsive center-block" alt="Responsive image" src="~/Images/logo.PNG" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding-top:20px;background-color:white;">
+                <ul class="nav navbar-nav" style="margin-left:30px" id="nav">
+
+                    <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("HOME", "index")</li>
+                    <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("CONTACT US", "Locate")</li>
+                    <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("CATER WITH US", "Cater")</li>
+
+                    <li class="top-bar">
+                        <button class="top-bar" style="font-size:large;padding:11.8px;font-weight:500;color:grey;background-color:white;border:none
+" data-toggle="modal" data-target="#mymodal">
+                            HOURS
+                        </button>
+                    </li>
+
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="top-bar" style="font-size:large;font-weight:500">@Html.ActionLink("TODAY'S BUFFET MENU", "Buffet_Menu")</li>
+
+                    <li class="dropdown" style="font-size:large;padding:11.8px;background-color:white;border:none">
+                        <a id="login" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:large;padding:5px;border:solid">
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Admin Login", "Login")</a></li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+
+    <div id="saver" style="height:30px"></div>
+    <div id="any"></div>
+
+    <div id="main-section" style="position:relative">
+        <div class="row">
+            <div class="col-md-12" id="menu-bar">Menu</div>
+        </div>
+        <div id="tab-image" style="margin-bottom:15px">
+            <img id="mob-image" style="width:100%;" src="~/big_images/mobile background.PNG" />
+        </div>
+        <div id="itemslist" style="margin-bottom:30px;">
+            @for (int i = 0; i < @Model.Count; i++)
+            {
+                str[i] = @Model.ElementAt(i).Category_info.category_name;
+            }
+
+            @{
+                unique = str.Distinct().ToArray();
+            }@for (int i = 0; i < @unique.Length - 1; i++)
+            {
+                <button style="box-shadow: 0px 0px 10px #888;border-radius: 10px;margin-bottom:10px" id="categories" name="@(i+1)" type="button" class="btn btn-warning">@unique[i]</button>
+
+
+            }
+
+        </div>
+
+
+        <div id="mobile-section">
+            <div id="mobile-menu" style="border-color:gray;border-radius:6px;border:thick;height:50px;width:20%;text-align:center">
+                <div class="dropdown">
+                    <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <p style="margin-top:13px;font-weight:600">MENU</p>
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        @for (int i = 0; i < @unique.Length - 1; i++)
+                        {
+                            <li name="@unique[i]" id="mobile-list" class="@(i+1)"><a href="#">@unique[i]</a></li>
+                        }
+
+                    </ul>
+                </div>
+            </div>
+            <div id="mobile-categories" style="width:65%;height:50px;background-color:#990012;text-align:center;border-radius:10px">
+                <p id="mob-category" style="font-weight:600;color:white;margin-top:9px;font-size:large;">Appetizers</p>
+            </div>
+        </div>
+        <div id="items-image" class="menu-items" style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-around;">
+            @for (int i = 0; i < @Model.Count; i++)
+            {
+                <div id="mobile-menu" style="display:flex;flex-direction:column;justify-content:space-around; margin:0px">
+                    <img count="@i" id="item-image" style="width:150px;height:150px;padding-left:20px;" name="@Model.ElementAt(i).Item_name" class="@Model.ElementAt(i).Item_category_ID" src="@Url.Content(@Model.ElementAt(i).Item_photo)" />
+                    <p id="item-image" style="width:150px;height: 25px;padding-left:20px;margin-bottom:0px;padding-bottom:0px" class="@Model.ElementAt(i).Item_category_ID">@Model.ElementAt(i).Item_name</p>
+                    <p id="item-image" style="text-align:center;width:130px;height: 20px;padding-left:20px;margin:0px;padding:0px" class="@Model.ElementAt(i).Item_category_ID"><strong>$@Model.ElementAt(i).Item_price</strong></p>
+
+                </div>
+            }
+
+
+        </div>
+
+
+    </div>
+
+    <div id="mobile" style="position: relative;margin-top:0px">
+        @*<div>@unique.Length</div>*@
+        <div style="margin-bottom:15px">
+            <img id="mob-image" style="width:300px;" src="~/big_images/mobile background.PNG" />
+        </div>
+        <div id="mobile-section">
+            <div id="mobile-menu" style="border-color:gray;border-radius:6px;border:thick;height:50px;width:20%;text-align:center">
+                <div class="dropdown">
+                    <a id="dLabel" data-target="#" href="http://example.com" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <p style="margin-top:13px;font-weight:600">MENU</p>
+                        <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                        @for (int i = 0; i < @unique.Length - 1; i++)
+                        {
+                            <li name="@unique[i]" id="mobile-list" class="@(i+1)"><a href="#">@unique[i]</a></li>
+
+                        }
+
+                    </ul>
+                </div>
+            </div>
+            <div id="mobile-categories" style="width:65%;height:50px;background-color:#990012;text-align:center;border-radius:10px">
+                <p id="mob-category" style="font-weight:600;color:white;margin-top:9px;font-size:large">Appetizers</p>
+            </div>
+        </div>
+        <div id="mobile-body" style="background-image: url('../../../../Images/grey_background.jpg');background-position:center;height:1450px">
+            @for (int i = 0; i < @Model.Count; )
+            {
+                int j = (int)@Model.ElementAt(i).Item_category_ID;
+                <div id="items-image" class="menu-items" style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-around;">
+
+
+                    @for (int k = i; k < @Model.Count; k++)
+                    {
+                        if (@Model.ElementAt(k).Item_category_ID != j && k != 0)
+                        { break; }
+
+                        <div id="mobile-menu" style="display:flex;flex-direction:column;margin-top:30px;">
+                            <img style="width:120px;height:150px;border-radius:10px;margin" id="item-image" name="@Model.ElementAt(i).Item_name" class="@Model.ElementAt(i).Item_category_ID" src="@Url.Content(@Model.ElementAt(i).item_bigphoto)" />
+                            <p style="width:120px;height:25px;color:white;font-weight:500;font-size:medium;margin-bottom:0px;" id="item-image" class="@Model.ElementAt(i).Item_category_ID">@Model.ElementAt(i).Item_name</p>
+                            <p id="item-image" style="color:white;text-align:center;width:120px;height: 10px;padding-left:20px;margin:0px;padding:0px" class="@Model.ElementAt(i).Item_category_ID">$@Model.ElementAt(i).Item_price</p>
+
+                        </div>
+                        j = (int)@Model.ElementAt(k).Item_category_ID;
+                        i++;
+                    }
+                </div>
+            }
+
+
+            @*<div id="items-image" class="menu-items" style="display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-around;">
+                    @for (int i = 0; i < @Model.Count; i++)
+                    {
+                        <div id="mobile-menu" style="display:flex;flex-direction:column;margin-top:10px;">
+                            <img style="width:120px;height:150px;border-radius:10px;" id="item-image" name="@Model.ElementAt(i).Item_name" class="@Model.ElementAt(i).Item_category_ID" src="@Url.Content(@Model.ElementAt(i).item_bigphoto)" />
+                            <p style="width:120px;height:50px;color:white;font-weight:500;font-size:large" id="item-image" class="@Model.ElementAt(i).Item_category_ID">@Model.ElementAt(i).Item_name</p>
+                        </div>
+
+                    }
+                </div>*@
+            <div style="width:100%;text-align:center;color:white;height:50px;background-color:#990012">
+                Copyright &copy; Urban Tadka. Site Developed by Akash Gupta(214-226-7998)
+            </div>
+
+        </div>
+       
+    </div>
+
+
+
+    @*<div class="description">
+            @for (int i = 0; i <@Model.Count/2; i++)
+            {
+                <img  id="big-image" name="@Model.ElementAt(i).Item_name" src="@Url.Content(@Model.ElementAt(i).item_bigphoto)" />
+                <table id="big-image" name="@Model.ElementAt(i).Item_name" style="width:40%;height:350px;">
+                    <thead>
+                        <tr>
+                            <th style="font-weight:900;color:white;font-size:large;text-align:center;background-color:#990012">@Model.ElementAt(i).Item_name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:700;text-align:center">@Model.ElementAt(i).description_of_item</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td style="font-weight:700;text-align:center">@Model.ElementAt(i).serving_size</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:900;text-align:center">Price:@Model.ElementAt(i).Item_price</td>
+                        </tr>
+                        <tr>
+                            <td id="close-button" style="font-weight:900;text-align:center;background-color:rgba(203, 209, 206, 0.92)">Close</td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+
+        </div>
+        <div class="description1">
+            @for (int i = @Model.Count/2; i < @Model.Count; i++)
+            {
+                <img id="big-image1" name="@Model.ElementAt(i).Item_name" src="@Url.Content(@Model.ElementAt(i).item_bigphoto)" />
+                <table id="big-image1" name="@Model.ElementAt(i).Item_name" style="width:40%;height:350px;">
+                    <thead>
+                        <tr>
+                            <th style="font-weight:900;color:white;font-size:large;text-align:center;background-color:#990012">@Model.ElementAt(i).Item_name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:700;text-align:center">@Model.ElementAt(i).description_of_item</td>
+                        </tr>
+                        <tr>
+                        <tr>
+                            <td style="font-weight:700;text-align:center">@Model.ElementAt(i).serving_size</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:900;text-align:center">Price:@Model.ElementAt(i).Item_price</td>
+                        </tr>
+                        <tr>
+                            <td id="close-button" style="font-weight:900;text-align:center;background-color:rgba(203, 209, 206, 0.92)">Close</td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+
+        </div>*@
+
+    <div class="sliders">
+        <div class="content1" id="slider1">
+            <img style="height:390px; width:100%" src="~/Images/indian spices.PNG" />
+            <img style="height:390px; width:100%" src="~/Images/about.PNG" />
+            <img style="height:390px; width:100%" src="~/Images/indian_spices.jpg" />
+            <img style="height:390px; width:100%" src="~/Images/indian_spices.jpg" />
+            <img style="height:390px; width:100%" src="~/Images/indian_spices2.jpg" />
+        </div>
+        <div class="content1" id="slider2">
+            <img style="height:390px; width:100%" src="~/Images/tandoori_chicken.jpg" />
+            <img style="height:390px; width:100%" src="~/Images/gulab jamun.PNG" />
+            <img style="height:390px; width:100%" src="~/Images/chicken tikka.PNG" />
+
+
+        </div>
+    </div>
+
+    <div id="footer" style="width:100%;text-align:center;color:white;margin-top:100px;height:40px;padding:5px;background-color:#990012">
+       Copyright &copy; Urban Tadka. Site Developed by Akash Gupta(214-226-7998)
+    </div>
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="mymodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" style="color:white;font-weight:900;text-align:center">HOURS</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table" style="background-color:grey; font-weight:900">
+                        <thead>
+                            <tr>
+                                <th> DAYS</th>
+                                <th> LUNCH</th>
+                                <th> DINNER</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MONDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td style="background-color:white">TUESDAY</td>
+                                <td colspan="2" style="background-color:white">WE ARE CLOSED ON EVERY TUESDAY</td>
+
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>WEDNESDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>THURSDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>FRIDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>SATURDAY</td>
+                                <td>11.00AM - 3.00PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>SUNDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,250 @@
+﻿@model IList<Urban_BOL.Item_Info>
+@using Urban_BOL;
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <title>Uraban Tadka Buffet Menu</title>
+     <meta name="viewport" content="width=device-width, height=device-height">
+    <script src="~/Scripts/jquery-2.0.0.js"></script>
+    <link href="~/slick.css" rel="stylesheet" />
+    <script src="~/Scripts/slick.min.js"></script>
+    <link href="~/Scripts/bootstrap.css" rel="stylesheet" />
+    <link href="~/Home.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap1.js"></script>
+    <script type="text/javascript">
+        var c = 0;
+        $(document).ready(function () {
+            if (window.innerWidth > 767) {
+                $('.top-bar').hover(function () { $(this).css('background-color', '#F75D59') }).mouseout(function () { $(this).css('background-color', 'white') });
+            } $('a[id="category-bar"]').each(function () {
+                var a = $(this).attr('hrefvalue');
+                $(this).attr('href', '#' + a + '');
+            });
+            $('#saver').hide();
+            if (window.innerWidth <= 767) {
+                $('img[id="buffet-image"]').css('height', '70px');
+                $('.top-bar').css('background-color', '#9F000F');
+                $('#saver').show();
+                $('#menu-icon').click(function () {
+                    $('#saver').css('height', '150px')
+                    c++
+
+                    if (c % 2 != 0) {
+                        $('div[class="container"]').animate({ 'top': 200 });
+                    }
+                    else {
+                        $('div[class="container"]').animate({ 'top': 0 });
+                        $('#saver').css('height', '30px')
+                    }
+
+                })
+
+            }
+        });
+
+      
+  </script>
+
+
+</head>
+<body>
+    @{
+
+        int j = 0;
+        int i = 0;
+
+    }
+   
+
+
+    <nav class="navbar navbar-default" style="height:100px; background-color:white">
+        <div class="container-fluid" style="background-color:white">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" id="menu-icon" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#" style="margin:0px;padding:0px"><img id="logo" style="height:99px;width:150%;border-bottom:solid;border-color:rgba(203, 209, 206, 0.92)" class="img-responsive center-block" alt="Responsive image" src="~/Images/logo.PNG" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding-top:20px;background-color:white;">
+                <ul class="nav navbar-nav" style="margin-left:30px" id="nav">
+
+                    <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("HOME", "index")</li>
+                    <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("CONTACT US", "Locate")</li>
+                    <li class="top-bar" style="font-size:large;font-weight:500;background-color:white">@Html.ActionLink("CATER WITH US", "Cater")</li>
+
+                    <li class="top-bar">
+                        <button class="top-bar" style="font-size:large;padding:11.8px;font-weight:500;color:grey;background-color:white;border:none
+" data-toggle="modal" data-target="#mymodal">
+                            HOURS
+                        </button>
+                    </li>
+
+
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="top-bar" style="font-size:large;font-weight:500">@Html.ActionLink("TODAY'S BUFFET MENU", "Buffet_Menu")</li>
+
+                    <li class="dropdown" style="font-size:large;padding:11.8px;background-color:white;border:none">
+                        <a id="login" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="font-size:large;padding:5px;border:solid">
+                            <span class="glyphicon glyphicon-align-justify" aria-hidden="true">
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">@Html.ActionLink("Admin Login", "Login")</a></li>
+                        </ul>
+                    </li>
+
+
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="modal fade" tabindex="-1" role="dialog" id="mymodal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" style="color:white;font-weight:900;text-align:center">HOURS</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table" style="background-color:grey; font-weight:900">
+                        <thead>
+                            <tr>
+                                <th> DAYS</th>
+                                <th> LUNCH</th>
+                                <th> DINNER</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>MONDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td style="background-color:white">TUESDAY</td>
+                                <td colspan="2" style="background-color:white">WE ARE CLOSED ON EVERY TUESDAY</td>
+
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>WEDNESDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>THURSDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>FRIDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>SATURDAY</td>
+                                <td>11.00AM - 3.00PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td>SUNDAY</td>
+                                <td>11.00AM - 2.30PM</td>
+                                <td>5.30PM - 9.45PM</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <div id="saver" style="height:30px"></div>
+    <div class="container" style="background-image: url('~/big_images/backgroundgrad[1].jpg');position:relative;height:auto">
+        <div style="background-color:#d4c1c1;color:#3e3434;font-weight:800;text-align:center;height:50px;padding:15px;font-size:large">BUFFET MENU</div>
+
+        @for (i = 0; i < @Model.Count; )
+        {
+            j = (int)@Model.ElementAt(i).Item_category_ID;
+            <a id="category-bar" hrefvalue="@(i+1)" class="btn btn-primary" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample" style="width:100%;font-weight:700;background-color:#990012;height:auto; box-shadow: 0px 0px 10px #888;border-color:#888">
+                @Model.ElementAt(i).Category_info.category_name
+            </a>
+
+            <div class="collapse" id="@(i+1)"style="height:auto">
+
+                <div id="buffet-menu" class="well">
+                    @for (int k = i; k < @Model.Count; k++)
+                    {
+
+                        if (@Model.ElementAt(k).Is_Buffet == true)
+                        {
+                            if (@Model.ElementAt(k).Item_category_ID != j && k != 0)
+                            { break; }
+
+                            <div id="buffet-item" style="display:flex;flex-direction:column">
+                                <img id="buffet-image"class="img-responsive"style="height:150px;width:150px;"src="@Url.Content(@Model.ElementAt(k).item_bigphoto)" alt="...">
+
+                                
+                                    <p style="font-size:medium;margin-top:2px;font-weight:700">@Model.ElementAt(k).Item_name</p>
+                                   
+                              
+                            </div>
+                            j = (int)@Model.ElementAt(k).Item_category_ID;
+
+                        }
+
+                        i++;
+                    }
+                </div>
+            </div>
+
+        }
+        <a style="background-color:#d4c1c1;box-shadow: 0px 0px 10px #888;color:#3e3434;font-weight:800;text-align:center;height:50px;padding:12px;font-size:large;width:100%" class="btn btn-primary" role="button" data-toggle="collapse" href="#price" aria-expanded="false" aria-controls="collapseExample">PRICE</a>
+        <div class="collapse" id="price"style="width:100%">
+            <div class="well">
+              <table class=" table table-responsive">
+                  <thead>
+                      <tr><th>DAYS</th><th> PRICE</th></tr>
+                      
+                  </thead>
+                  <tbody>
+                      <tr><td>MONDAY-THURSDAY</td><td>$8.95</td></tr>
+                      <tr><td>FRIDAY-SATAURDAY</td><td>$9.95</td></tr>
+                  </tbody>
+              </table>
+            </div>
+        </div>
+
+</div>
+
+    <footer style="width:100%;text-align:center;color:white;margin-top:50px;background-color:#990012">Site Developed and Maintain by Akash Gupta(214-226-7998) </footer>
+
+
+
+
+</body>
+
+</html>
